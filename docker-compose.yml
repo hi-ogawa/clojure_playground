@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  lein:
+    image: clojure:lein-2.6.1
+    entrypoint: ["lein"]
+    command: ["repl"]
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+      - build_cache:/root
+
+volumes:
+  build_cache:
